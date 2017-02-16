@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <!-- console logger -->
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <!--<param name="ConversionPattern"-->
+                <!--value="%-5p [%d{EEE MMM d HH:mm:ss z yyyy:}] [%t] [%X{ProcessId}] [%L] %c : %m%n" />-->
+            <param name="ConversionPattern" value="%d{ISO8601}: %-5p [%c{1}] - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+        </filter>
+    </appender>
+
+    <appender name="appenderWrapper" class="com.mac.libraries.logging.AppenderWrapper">
+        <appender-ref ref="stdout"/>
+    </appender>
+
+    <root>
+        <priority value="DEBUG"/>
+        <appender-ref ref="appenderWrapper"/>
+    </root>
+
+</log4j:configuration>

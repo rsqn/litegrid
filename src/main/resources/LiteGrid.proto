@@ -1,0 +1,10 @@
+package litegrid;
+
+option java_package = "com.mac.litegrid.clustering.protoc";
+option java_outer_classname = "LiteGridProtoc";
+
+message NetworkPacket {
+  required string uid = 101;
+  required int64 sequence = 102;
+  required bytes data = 403;
+}
